@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Polbie Recruit V3</title>
+<style>
+html,body{margin:0;width:100%;height:100%;font-family:Arial,sans-serif;background:#e8edf3}
+body{display:flex;align-items:center;justify-content:center}
+#app{width:92%;max-width:700px;background:#fff;border:3px solid #111;border-radius:22px;padding:18px;text-align:center}
+#stage{height:58vh;min-height:380px;position:relative;border:3px dashed #aaa;border-radius:18px;background:#fafafa;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#rarity{position:absolute;top:8px;left:8px;width:150px;z-index:2}
+#polbie{width:65%;height:65%;object-fit:contain}
+#name{font-size:28px;font-weight:bold}
+#status{min-height:25px}
+#recruit{width:85%;min-height:64px;margin-top:15px;font-size:25px;font-weight:bold;border:3px solid #111;border-radius:16px;background:#ffd21c}
+</style>
+</head>
+<body>
+<div id="app">
+<h1>POLBIE RECRUIT</h1>
+<div id="stage">
+<img id="rarity" src="common_transparent.png" alt="Common">
+<img id="polbie" alt="">
+<div id="name">READY</div>
+<div id="status">Tap RECRUIT</div>
+</div>
+<div id="count">Recruited: 0</div>
+<button id="recruit" type="button">RECRUIT</button>
+</div>
+<script>
+const polbies=[
+["Bolivia","bolivia.png"],
+["Nepal","nepal.png"],
+["Niger","niger.png"]
+];
+let count=0;
+function recruit(){
+  const p=polbies[Math.floor(Math.random()*polbies.length)];
+  count++;
+  document.getElementById("polbie").setAttribute("src",p[1]);
+  document.getElementById("name").innerHTML=p[0];
+  document.getElementById("status").innerHTML="You recruited "+p[0]+"!";
+  document.getElementById("count").innerHTML="Recruited: "+count;
+}
+document.getElementById("recruit").addEventListener("click",recruit);
+</script>
+</body>
+</html>
