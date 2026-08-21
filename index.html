@@ -87,7 +87,10 @@ function recruit(){
   document.getElementById("status").textContent=rarity[0]+" • You recruited "+chosen[0]+"!";
   document.getElementById("count").textContent="Recruited this session: "+count;
 }
-document.getElementById("recruit").onclick=recruit;
+  
+document.getElementById("recruit").onclick = function() {
+  recruit();
+};
 </script>
 </body>
 </html>
